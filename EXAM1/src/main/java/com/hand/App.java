@@ -12,7 +12,7 @@ import java.net.URL;
 public class App {
 
     private static final String REMOTE_FILE_URL = "http://files.saas.hand-china.com/java/target.pdf";
-    private static final String LOCAL_FILE_PATH = "target.pdf"; // 改成你保存 文件的路径
+    private static final String LOCAL_FILE_PATH = "target.pdf";
 
     public static void main(String[] args) {
         new App(REMOTE_FILE_URL, LOCAL_FILE_PATH).download();
@@ -31,7 +31,7 @@ public class App {
             URL url = new URL(remoteFileUrl);
 
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.setConnectTimeout(5 * 1000); // 5000 毫秒内没有连接上 则放弃连接
+            httpURLConnection.setConnectTimeout(5000); // 5000 毫秒内没有连接上 则放弃连接
             httpURLConnection.connect(); // 连接
             System.out.println("连接成功");
 
@@ -41,7 +41,7 @@ public class App {
             System.out.println("开始下载...");
             try (DataInputStream dis = new DataInputStream(httpURLConnection.getInputStream());
                  FileOutputStream fos = new FileOutputStream(localFilePath)) {
-                byte[] buf = new byte[1024]; // 根据实际情况可以 增大 buf 大小
+                byte[] buf = new byte[2048]; 
                 for (int readSize; (readSize = dis.read(buf)) > 0;) {
                     fos.write(buf, 0, readSize);
                 }
