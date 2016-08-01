@@ -22,12 +22,7 @@ public class ClientSocket {
         this.port = port;
     }
 
-    /**
-     * 创建socket连接
-     *
-     * @throws Exception
-     *             exception
-     */
+
     public void CreateConnection() throws Exception {
         try {
             socket = new Socket(ip, port);

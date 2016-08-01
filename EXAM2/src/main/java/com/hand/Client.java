@@ -11,11 +11,11 @@ import java.io.FileOutputStream;
 public class Client {
     private ClientSocket cs = null;
 
-    private String ip = "127.0.0.1";// 设置成服务器IP
+    private String ip = "127.0.0.1";
 
     private int port = 12345;
 
-    private String sendMessage = "hello";
+    private String sendMessage = "Linux";
 
     public Client() {
         try {

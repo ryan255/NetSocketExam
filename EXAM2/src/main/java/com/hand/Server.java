@@ -37,7 +37,7 @@ public class Server {
                 ps.writeLong((long) fi.length());
                 ps.flush();
 
-                int bufferSize = 8192;
+                int bufferSize = 1024;
                 byte[] buf = new byte[bufferSize];
 
                 while (true) {
